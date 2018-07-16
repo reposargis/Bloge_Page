@@ -3,13 +3,13 @@
 @section('content')
     <div class="container">
         @component('admin.components.breadcrumb')
-          @slot('title') LIst Category @endslot
+          @slot('title') LIst News @endslot
           @slot('parent') Home         @endslot
-          @slot('active') Categories   @endslot
+          @slot('active') News   @endslot
         @endcomponent
         <hr>
 
-        <a href="{{ route('admin.category.create') }}" class="btn btn-primary pull-right"><i class="fa fa-plus-square-o">    Create Category</i></a>
+        <a href="{{ route('admin.article.create') }}" class="btn btn-primary pull-right"><i class="fa fa-plus-square-o">    Create News</i></a>
         <table class="table table-striped">
         	<thead>
         		<th>Name</th>
@@ -17,15 +17,15 @@
         		<th class="text-right">Action</th>
         	</thead>
         	<tbody>
-        		@forelse($categories as $category)
+        		@forelse($articles as $article)
         			<tr>
-        				<td>{{ $category->title }}</td>
-        				<td>{{ $category->published }}</td>
+        				<td>{{ $article->title }}</td>
+        				<td>{{ $article->published }}</td>
         				<td class="text-right"> 
-        					<form onsubmit="if(confirm('delete?')){ return true } else {return false}" action="{{ route('admin.category.destroy',$category) }}" method="post">
+        					<form onsubmit="if(confirm('delete?')){ return true } else {return false}" action="{{ route('admin.article.destroy',$article) }}" method="post">
         						<input type="hidden" name="_method" value="DELETE">
         						{{ csrf_field() }}
-        						<a href="{{ route('admin.category.edit',$category) }}" class="btn btn-default">
+        						<a href="{{ route('admin.article.edit',$article) }}" class="btn btn-default">
         							<i class="fa fa-edit"></i>
         						</a>
         						<button type="submit" class="btn"><i class="fa fa-trash-o"></i></button>
@@ -45,7 +45,7 @@
         		<tr>
         			<td colspan="3">
         				<ul class="pagination pull-right">
-        					{{ $categories->links() }}
+        					{{ $articles->links() }}
         				</ul>
         			</td>
         		</tr>
