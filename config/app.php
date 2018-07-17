@@ -179,6 +179,9 @@ return [
         //ckeditor
         Unisharp\Ckeditor\ServiceProvider::class,
 
+        //my provider
+        App\Providers\BlogServiceProvider::class,
+
     ],
 
     /*
