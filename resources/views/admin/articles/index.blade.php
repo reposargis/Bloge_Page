@@ -41,6 +41,7 @@
         		</tr>
         		@endforelse
         	</tbody>
+            
         	<tfoot>
         		<tr>
         			<td colspan="3">
