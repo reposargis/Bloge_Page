@@ -12,6 +12,9 @@
 */
 
 
+Route::get('/blog/category/{slug?}',['as'=>'category','uses'=>'BlogController@category']);
+Route::get('/blog/article/{slug?}',['as'=>'article','uses'=>'BlogController@article']);
+
 Route::group(['prefix'=>'admin','namespace'=>'Admin','middleware'=>['auth']],function(){
     Route::get('/',['as'=>'admin.index','uses'=>'DashboardController@dashboard']);
     Route::resource('/category','CategoryController',['as'=>'admin']);
